@@ -1,0 +1,2 @@
+Current homework for the next seminar is to write 5 programs with the use of FASM.
+I've created the "hello world' program, and 4 programs that can make basic calculations.
