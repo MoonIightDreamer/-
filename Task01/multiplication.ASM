@@ -1,6 +1,6 @@
-format PE Console        ; формат вывода - консоль
+format PE Console        ; output type - console
 
-entry start              ; точка начала кода
+entry start              ; code start point
 
 include 'win32a.inc'
 
@@ -23,25 +23,25 @@ section '.code' code readable executable
 
         push A
         push strSpace
-        call [scanf]                 ; ввод 1-го множителя
+        call [scanf]                 ; entering the first multiplier
 
         push str2
         call [printf]
 
         push B
         push strSpace
-        call [scanf]                 ; ввод 2-го множителя
+        call [scanf]                 ; entering the second multiplier
 
         mov ecx, [A]
-        imul ecx, [B]                 ; умножение (в случае imul - знаковое. для беззнакового используется mul)
+        imul ecx, [B]                 ; multiplication (we use "imul" for signed multiplication. for the unsigned one we use "mul")
 
         push ecx
         push strRes
-        call[printf]                 ; вывод результата
+        call[printf]                 ; show result
 
         jmp finish
 
-        finish:                      ; конец программы
+        finish:                      ; exiting program
 
         call [getch]
 
