@@ -1,7 +1,7 @@
-;программа, суммирующая два введенных пользователем числа
-format PE Console        ; формат вывода - консоль
+;ГЇГ°Г®ГЈГ°Г Г¬Г¬Г , Г±ГіГ¬Г¬ГЁГ°ГіГѕГ№Г Гї Г¤ГўГ  ГўГўГҐГ¤ГҐГ­Г­Г»Гµ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐГ¬ Г·ГЁГ±Г«Г 
+format PE Console        ; ГґГ®Г°Г¬Г ГІ ГўГ»ГўГ®Г¤Г  - ГЄГ®Г­Г±Г®Г«Гј
 
-entry start              ; точка начала кода
+entry start              ; ГІГ®Г·ГЄГ  Г­Г Г·Г Г«Г  ГЄГ®Г¤Г 
 
 include 'win32a.inc'
 
@@ -14,7 +14,6 @@ section '.data' data readable writable
 
         A dd ?
         B dd ?
-        C dd ?
 
 section '.code' code readable executable
 
@@ -25,25 +24,25 @@ section '.code' code readable executable
 
         push A
         push strSpace
-        call [scanf]                 ; ввод 1-го слагаемого
+        call [scanf]                 ; ГўГўГ®Г¤ 1-ГЈГ® Г±Г«Г ГЈГ ГҐГ¬Г®ГЈГ®
 
         push str2
         call [printf]
 
         push B
         push strSpace
-        call [scanf]                 ; ввод 2-го слагаемого
+        call [scanf]                 ; ГўГўГ®Г¤ 2-ГЈГ® Г±Г«Г ГЈГ ГҐГ¬Г®ГЈГ®
 
         mov ecx, [A]
-        add ecx, [B]                 ; суммирование
+        add ecx, [B]                 ; Г±ГіГ¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ
 
         push ecx
         push strRes
-        call[printf]                 ; вывод результата
+        call[printf]                 ; ГўГ»ГўГ®Г¤ Г°ГҐГ§ГіГ«ГјГІГ ГІГ 
 
         jmp finish
 
-        finish:                      ; конец программы
+        finish:                      ; ГЄГ®Г­ГҐГ¶ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
 
         call [getch]
 
