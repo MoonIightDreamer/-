@@ -1,6 +1,6 @@
-format PE Console        ; формат вывода - консоль
+format PE Console        ; ГґГ®Г°Г¬Г ГІ ГўГ»ГўГ®Г¤Г  - ГЄГ®Г­Г±Г®Г«Гј
 
-entry start              ; точка начала кода
+entry start              ; ГІГ®Г·ГЄГ  Г­Г Г·Г Г«Г  ГЄГ®Г¤Г 
 
 include 'win32a.inc'
 
@@ -26,14 +26,14 @@ section '.code' code readable executable
 
         push A
         push strSpace
-        call [scanf]                 ; ввод 1-го слагаемого
+        call [scanf]                 ; entering the numerator
 
         push str2
         call [printf]
 
         push B
         push strSpace
-        call [scanf]                 ; ввод 2-го слагаемого
+        call [scanf]                 ; entering denominator
 
         mov eax, [A]
         mov ecx, [B]
@@ -66,11 +66,11 @@ section '.code' code readable executable
 
         push ecx
         push strRes
-        call[printf]                 ; вывод результата
+        call[printf]                 ; show result
 
         jmp finish
 
-        finish:                      ; конец программы
+        finish:                      ; finishing program
 
         call [getch]
 
