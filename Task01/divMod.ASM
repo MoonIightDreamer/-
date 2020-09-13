@@ -1,6 +1,6 @@
-format PE Console        ; ôîðìàò âûâîäà - êîíñîëü
+format PE Console        ; output type - console
 
-entry start              ; òî÷êà íà÷àëà êîäà
+entry start              ; code start point
 
 include 'win32a.inc'
 
