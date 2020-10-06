@@ -1,4 +1,4 @@
-;вар 10
+;variant 10
 format PE console
 
 entry start
@@ -20,15 +20,11 @@ section '.data' data readable writable
 
 section '.code' code readable executable
         start:
-                push strNumber
-                call [printf]
+                cinvoke printf, strNumber
 
+                cinvoke scanf, emptyStr, Number
 
-                push Number
-                push emptyStr
-                call [scanf]
-
-
+                ;array A input loop
                 mov ebx, 0
                 for:
                         mov edx, ebx
@@ -49,10 +45,26 @@ section '.code' code readable executable
                 jne for
 
 
-
+                ;array B creating loop
                 mov ebx, [Number]
                 sub ebx, 1
                 for2:
+                        mov ecx, [Number]
+                        sub ecx, ebx
+                        sub ecx, 2
+                        inc ecx
+
+                        mov ecx, [mass + 4 * ebx]
+                        mov [massB], ecx
+
+                        sub ebx, 1
+                        cmp ebx, -1
+                jg for2
+
+                ;array B output loop
+                mov ebx, [Number]
+                sub ebx, 1
+                for3:
                         mov ecx, [Number]
                         sub ecx, ebx
                         sub ecx, 2
@@ -63,8 +75,7 @@ section '.code' code readable executable
 
                         sub ebx, 1
                         cmp ebx, -1
-                jg for2
-
+                jg for3
 
 
                 call [getch]
